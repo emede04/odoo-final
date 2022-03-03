@@ -1,0 +1,26 @@
+<odoo>
+    <record id="odoo_final_md.servicios_limpieza_report" model="ir.actions.report">
+        <field name="name"> Informe de servicios_limpieza</field>
+        <field name="model">odoo_final_md.servicios_limpieza</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_final_md.servicios_limpieza_report_view</field>
+        <field name="report_file">odoo_final_md.servicios_limpieza_report</field>
+        <field name="binding_model_id" ref="model_odoo_final_md_servicios_limpieza"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="servicios_limpieza_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>servicios_limpieza </h1><br />
+                <t t-foreach="docs" t-as="servicios_limpieza">
+                    <ul>
+                        <li>    Nombre del servicio de limpieza: <span t-field="servicios_limpieza.name" /></li>
+                        <li>    empresa que oferta el servicio de limpieza: <span t-field="servicios_limpieza.empresa" /></li>
+                        <li>    Precio del servicio: <span t-field="servicios_limpieza.precio" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

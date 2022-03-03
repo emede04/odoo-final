@@ -1,0 +1,26 @@
+<odoo>
+    <record id="odoo_final_md.ancianos_report" model="ir.actions.report">
+        <field name="name"> Informe de ancianos residentes</field>
+        <field name="model">odoo_final_md.ancianos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_final_md.ancianos_report_view</field>
+        <field name="report_file">odoo_final_md.ancianos_report</field>
+        <field name="binding_model_id" ref="model_odoo_final_md_ancianos"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="ancianos_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>ancianos </h1><br />
+                <t t-foreach="docs" t-as="ancianos">
+                    <ul>
+                        <li>    Nombre: <span t-field="ancianos.name" /></li>
+                        <li>    Numero: <span t-field="ancianos.numero" /></li>
+                        <li>    factura: <span t-field="ancianos.factura_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <record id="odoo_final_md.empresa_report" model="ir.actions.report">
+        <field name="name"> Informacion de la de empresas</field>
+        <field name="model">odoo_final_md.empresa</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_final_md.empresa_report_view</field>
+        <field name="report_file">odoo_final_md.empresa_report</field>
+        <field name="binding_model_id" ref="model_odoo_final_md_empresa"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="empresa_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Empresas </h1><br />
+                <t t-foreach="docs" t-as="empresa">
+                    <ul>
+                        <li>    Nombre: <span t-field="empresa.name" /></li>
+                        <li>    numero residencias que pertenecen: <span t-field="empresa.residencias_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

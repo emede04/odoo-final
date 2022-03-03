@@ -1,0 +1,25 @@
+<odoo>
+    <record id="odoo_final_md.profesionales_salud_report" model="ir.actions.report">
+        <field name="name"> Informe de profesionales_salud</field>
+        <field name="model">odoo_final_md.profesionales_salud</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_final_md.profesionales_salud_report_view</field>
+        <field name="report_file">odoo_final_md.profesionales_salud_report</field>
+        <field name="binding_model_id" ref="model_odoo_final_md_profesionales_salud"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="profesionales_salud_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>Empleados Existentes </h1><br />
+                <t t-foreach="docs" t-as="profesionales_salud">
+                    <ul>
+                        <li>    Nombre del empleado: <span t-field="profesionales_salud.name" /></li>
+                        <li>    Local donde trabaja: <span t-field="profesionales_salud.residencias_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

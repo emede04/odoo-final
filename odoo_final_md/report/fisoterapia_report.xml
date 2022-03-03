@@ -1,0 +1,26 @@
+<odoo>
+    <record id="odoo_final_md.fisoterapia_report" model="ir.actions.report">
+        <field name="name"> Informe de fisoterapia</field>
+        <field name="model">odoo_final_md.fisoterapia</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_final_md.fisoterapia_report_view</field>
+        <field name="report_file">odoo_final_md.fisoterapia_report</field>
+        <field name="binding_model_id" ref="model_odoo_final_md_fisoterapia"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="fisoterapia_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>fisoterapia </h1><br />
+                <t t-foreach="docs" t-as="fisoterapia">
+                    <ul>
+                        <li>    Nombre: <span t-field="fisoterapia.name" /></li>
+                        <li>    empresa que da los servicios de fisoterapia: <span t-field="fisoterapia.empresa" /></li>
+                        <li>    Precio del servicio: <span t-field="fisoterapia.precio" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

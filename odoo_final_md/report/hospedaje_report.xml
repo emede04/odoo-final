@@ -1,0 +1,26 @@
+<odoo>
+    <record id="odoo_final_md.hospedaje_report" model="ir.actions.report">
+        <field name="name"> Informe de hospedaje</field>
+        <field name="model">odoo_final_md.hospedaje</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_final_md.hospedaje_report_view</field>
+        <field name="report_file">odoo_final_md.hospedaje_report</field>
+        <field name="binding_model_id" ref="model_odoo_final_md_hospedaje"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="hospedaje_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>hospedajes </h1><br />
+                <t t-foreach="docs" t-as="hospedaje">
+                    <ul>
+                        <li>    Nombre: <span t-field="hospedaje.name" /></li>
+                        <li>    Tipo de hospedaje: <span t-field="hospedaje.tipo" /></li>
+                        <li>    Precio del hospedaje: <span t-field="hospedaje.precio" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

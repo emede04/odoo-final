@@ -1,0 +1,29 @@
+<odoo>
+    <record id="odoo_final_md.recibo_report" model="ir.actions.report">
+        <field name="name"> Informe de recibos</field>
+        <field name="model">odoo_final_md.recibo</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_final_md.recibo_report_view</field>
+        <field name="report_file">odoo_final_md.recibo_report</field>
+        <field name="binding_model_id" ref="model_odoo_final_md_recibo"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="recibo_report_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h1>recibos </h1><br />
+                <t t-foreach="docs" t-as="recibo">
+                    <ul>
+                        <li>    ID: <span t-field="recibo.name" /></li>
+                        <li>    enfermeria: <span t-field="recibo.enfermeria_id" /></li>
+                        <li>    fisoterapia: <span t-field="recibo.fisoterapia_id" /></li>
+                        <li>    servicios_limpieza: <span t-field="recibo.servicios_limpieza_id" /></li>
+                        <li>    hospedaje: <span t-field="recibo.hospedaje_id" /></li>
+                        <li>    factura: <span t-field="recibo.factura_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
